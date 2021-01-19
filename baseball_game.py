@@ -32,13 +32,11 @@ def is_digit(user_input_number):
     # ===Modify codes below=============
     # 조건에 따라 변환되어야 할 결과를 result 변수에 할당
 
-    result = True
     for num in user_input_number:
         if "0" > num or num > "9":
-            result = False
+            return False
 
-    # ==================================
-    return result
+    return True
 
 
 def is_between_100_and_999(user_input_number):
@@ -65,12 +63,10 @@ def is_between_100_and_999(user_input_number):
 
     # is_digit이 true일 때만 실행
     number = int(user_input_number)
-    result = False
     if 100 <= number and number < 1000:
-        result = True
+        return True
 
-    # ==================================
-    return result
+    return False
 
 
 def is_duplicated_number(three_digit):
@@ -95,14 +91,11 @@ def is_duplicated_number(three_digit):
     # '''
     # ===Modify codes below=============
     # 조건에 따라 변환되어야 할 결과를 result 변수에 할당
-    result = False
     for num in three_digit:
         if three_digit.count(num) > 1:
-            result = True
-            break
+            return True
 
-    # ==================================
-    return result
+    return False
 
 
 def is_validated_number(user_input_number):
@@ -129,16 +122,14 @@ def is_validated_number(user_input_number):
     # 조건에 따라 변환되어야 할 결과를 result 변수에 할당
 
     # is_digit이 True, is_between_100_and_999이 True, is_duplicated_number이 False일 때 True
-    result = False
     if (
         is_digit(user_input_number)
         and is_between_100_and_999(user_input_number)
         and not is_duplicated_number(user_input_number)
     ):
-        result = True
+        return True
 
-    # ==================================
-    return result
+    return False
 
 
 def get_not_duplicated_three_digit_number():
@@ -171,7 +162,7 @@ def get_not_duplicated_three_digit_number():
         if not is_duplicated:
             result = rand_three_digit_number
             break
-    # ==================================
+
     return result
 
 
@@ -208,11 +199,10 @@ def get_strikes_or_ball(user_input_number, random_number):
         for j in range(3):
             if user_input_number[i] == random_number[j]:
                 if i == j:
-                    result[0] += 1
+                    result[0] += 1 # strike 추가
                 else:
-                    result[1] += 1
+                    result[1] += 1 # ball 추가
 
-    # ==================================
     return result
 
 def is_zero(user_input_number):
@@ -230,13 +220,10 @@ def is_zero(user_input_number):
     #   >>> bg.is_zero("47392")
     #   False
     # '''
-
-    result = False
     if user_input_number == "0":
-        result = True
+        return True
 
-    # ==================================
-    return result
+    return False
 
 def is_win(strikes):
     # '''
@@ -253,13 +240,10 @@ def is_win(strikes):
     #   >>> bg.is_win(1)
     #   False
     # '''
-
-    result = False
     if strikes == 3:
-        result = True
+        return True
 
-    # ==================================
-    return result
+    return False
 
 def is_yes(one_more_input):
     # '''
@@ -287,11 +271,10 @@ def is_yes(one_more_input):
     # '''
     # ===Modify codes below=============
     # 조건에 따라 변환되어야 할 결과를 result 변수에 할당
-    result = False
     if one_more_input.lower() == "y" or one_more_input.lower() == "yes":
-        result = True
-    # ==================================
-    return result
+        return True
+
+    return False
 
 
 def is_no(one_more_input):
@@ -320,11 +303,10 @@ def is_no(one_more_input):
     # '''
     # ===Modify codes below=============
     # 조건에 따라 변환되어야 할 결과를 result 변수에 할당
-    result = False
     if one_more_input.lower() == "n" or one_more_input.lower() == "no":
-        result = True
-    # ==================================
-    return result
+        return True
+
+    return False
 
 
 def main():
@@ -384,37 +366,3 @@ def main():
 
 if __name__ == "__main__":
     main()
-    # print(is_digit("472"))
-    # print(is_digit("abc"))
-    # print(is_digit("1024.24"))
-
-    # print(is_between_100_and_999("551"))
-    # print(is_between_100_and_999("13423432"))
-    # print(is_between_100_and_999("0"))
-    # print(is_between_100_and_999("100"))
-    # print(is_between_100_and_999("999"))
-    # print(is_between_100_and_999("99"))
-    # print(is_between_100_and_999("1000"))
-
-    # print(is_duplicated_number("551"))
-    # print(is_duplicated_number("123"))
-
-    # print(is_validated_number("amvd"))
-    # print(is_validated_number("1000"))
-    # print(is_validated_number("1"))
-    # print(is_validated_number("531"))
-
-    # print(get_strikes_or_ball("123", "472"))
-    # print(get_strikes_or_ball("472", "472"))
-    # print(get_strikes_or_ball("123", "321"))
-
-    # print(is_yes("Y"))
-    # print(is_yes("y"))
-    # print(is_yes("YES"))
-    # print(is_yes("YeS"))
-    # print(is_yes("asdf"))
-
-    # print(is_no("Y"))
-    # print(is_no("n"))
-    # print(is_no("N"))
-    # print(is_no("No"))
